@@ -41,6 +41,11 @@ public class ColaboradorResource {
 		List<ColaboradorDTO> listDTO = list.stream().map(obj -> new ColaboradorDTO(obj)).collect(Collectors.toList());
 		return ResponseEntity.ok().body(listDTO);
 	}
+	@GetMapping(value = "/all")
+	public ResponseEntity<List<Colaborador>> findAllWithAlimento() {
+		List<Colaborador> list = service.findAll();
+		return ResponseEntity.ok().body(list);
+	}
 
 	@PostMapping
 	public ResponseEntity<Colaborador> create(@Valid @RequestBody Colaborador obj) {
